@@ -1,0 +1,40 @@
+.project {
+
+	&-form {
+		padding: 30px;
+
+		&-input {
+			width: 250px;
+			background-color: $hex_grey_dark;
+			border-color: $hex_grey_dark;
+			height: 30px;
+			border-radius: 4px;
+			color: $hex_dark;
+			border: 1px solid $hex_light;
+			font-size: 13px;
+			line-height: 20px;
+			font-weight: 400;
+			padding: 1px 15px 0 30px;
+		}
+
+		&-button {
+			background: linear-gradient(to top right, $hex_red 0%, $hex_red_light 35%, $hex_yellow 100%);
+			border: none;
+			color: $hex_white;
+			height: 30px;
+			line-height: 30px;
+			padding: 0 9px;
+			border-radius: 4px;
+			min-width: 50px;
+			text-align: center;
+			cursor: pointer;
+			font-size: 13px;
+			display: inline-flex;
+			transition: .3s all ease-in-out;
+
+			&:hover {
+				opacity: .8;
+			}
+		}
+	}
+}

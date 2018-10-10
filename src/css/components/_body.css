@@ -1,0 +1,8 @@
+body {
+	font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 13px;
+	line-height: normal;
+	text-rendering: optimizeLegibility;
+	color: $hex_dark;
+	background-color: $hex_grey_light;
+}

@@ -1,0 +1,225 @@
+@import 'components/_variables.css';
+@import 'components/_mixins.css';
+@import 'components/_body.css';
+@import 'components/_form.css';
+
+.task {
+
+	&-list {
+		width: 95%;
+		margin: auto;
+		border-radius: 4px 4px 0 0;
+		box-shadow: 0 1px 3px 0 rgba( $rgb_black, .15 );
+		background-color: $hex_white;
+		margin-top: 20px;
+
+		@mixin min768 {
+			width: 50%;
+		}
+
+		&-header {
+			border-bottom: $border_bottom;
+			padding: 10px;
+
+			@mixin min768 {
+				padding: 10px 30px;
+			}
+
+			h1 {
+				font-size: 20px;
+				line-height: 28px;
+				font-weight: 500;
+				color: $hex_pink;
+			}
+		}
+
+		&-item {
+			display: flex;
+			align-items: center;
+			padding: 0 10px;
+			height: 37px;
+			border-bottom: $border_bottom;
+			transition: background-color .3s ease-in-out;
+
+			@mixin min768 {
+				padding: 0 30px;
+			}
+
+			&:hover {
+				background-color: $hex_grey_light;
+
+				.task {
+
+					&-list {
+
+						&-item {
+
+							&-icon {
+
+								&-wrapper {
+
+									&.dash {
+										opacity: 1;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			&-name {
+
+				a {
+					text-decoration: none;
+					color: $hex_dark;
+					transition: .3s all ease-in-out;
+
+					&:hover {
+						color: $hex_teal;
+					}
+				}
+			}
+
+			&-icon {
+
+				&-wrapper {
+					height: 20px;
+					width: 20px;
+					border-radius: 50%;
+					border: $border;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					margin-right: 10px;
+					transition: 200ms all ease-in-out;
+					cursor: pointer;
+					position: relative;
+
+					span {
+						color: $hex_grey;
+					}
+
+					&.check {
+
+						&:hover {
+							border: 1px solid $hex_teal;
+							background-color: $hex_teal_light;
+
+							span {
+								color: $hex_teal;
+							}
+						}
+
+						.tooltip {
+							border: 1px solid $hex_teal;
+							background-color: $hex_teal_light;
+							color: $hex_teal;
+
+							&:before {
+								border-bottom: 8px solid $hex_teal;
+							}
+						}
+					}
+
+					&.dash {
+						opacity: 0;
+
+						&:hover {
+							border: 1px solid $hex_red;
+							background-color: $hex_red_light;
+
+							span {
+								color: $hex_yellow;
+							}
+						}
+
+						.tooltip {
+							border: 1px solid $hex_red_light;
+							background-color: $hex_red;
+							color: $hex_yellow;
+
+							&:before {
+								border-bottom: 8px solid $hex_red_light;
+							}
+						}
+					}
+
+					.tooltip {
+						position: absolute;
+						bottom: -50px;
+						opacity: 0;
+						visibility: hidden;
+						white-space: nowrap;
+						border-radius: 4px;
+						padding: 0 10px;
+						z-index: 1000;
+						transition: .3s all ease-in-out;
+
+
+						&:before {
+							content: "";
+							border-left: 8px solid transparent;
+							border-right: 8px solid transparent;
+							top: -8px;
+							left: 50%;
+							height: 0;
+							width: 0;
+							transform: translateX(-50%);
+							position: absolute;
+
+						}
+
+
+						&.show {
+							opacity: 1;
+							visibility: visible;
+						}
+					}
+				}
+			}
+
+			&.complete {
+
+				.task {
+
+					&-list {
+
+						&-item {
+
+							&-icon {
+
+								&-wrapper {
+									cursor: default;
+
+									&.check {
+										border: 1px solid $hex_teal_light;
+										background-color: $hex_teal;
+
+										span {
+											color: $hex_teal_light;
+										}
+
+										.tooltip {
+											border: 1px solid $hex_teal_light;
+											background-color: $hex_teal;
+											color: $hex_teal_light;
+
+											&:before {
+												border-bottom: 8px solid $hex_teal_light;
+											}
+										}
+									}
+
+									&.dash {
+										cursor: pointer;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
